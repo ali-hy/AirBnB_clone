@@ -5,15 +5,28 @@ from models.engine.file_storage import FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
-    '''class to test BaseModel class'''
-    def test_save_reload(self):
-        '''tests the constructor'''
-        obj = BaseModel()
-        storage = FileStorage()
-        storage.new(obj)
+    """TestFileStorage class that defines all common tests for FileStorage"""
 
-        objs = storage.all()
-        storage.save()
-        FileStorage.__objects = dict()
-        storage.reload()
-        self.assertDictEqual(objs, storage.all())
+    def setUp(self):
+        """Setup TestFileStorage instance with FileStorage instance"""
+        self.storage = FileStorage()
+
+    def test_all(self):
+        """Test all method of FileStorage instance"""
+        self.assertIsInstance(self.storage.all(), dict)
+
+    def test_new(self):
+        """Test new method of FileStorage instance"""
+        obj = BaseModel()
+        self.storage.new(obj)
+        key = obj.__class__.__name__ + "." + obj.id
+        self.assertIn(key, self.storage.all())
+
+    def test_save_and_reload(self):
+        """Test save and reload methods of FileStorage instance"""
+        obj = BaseModel()
+        self.storage.new(obj)
+        self.storage.save()
+        self.storage.reload()
+        key = obj.__class__.__name__ + "." + obj.id
+        self.assertIn(key, self.storage.all())
