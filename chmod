@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+chmod -R 755 ./models/ ./tests/
+chmod 755 *.py
