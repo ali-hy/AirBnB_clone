@@ -33,7 +33,7 @@ class HBNBCommand(cmd.Cmd):
                  completekey: str = "tab",
                  stdin: IO[str] | None = None,
                  stdout: IO[str] | None = None) -> None:
-        '''Constructor'''
+        '''Constructor of the commandline interpreter'''
         super().__init__(completekey, stdin, stdout)
         if sys.stdin.isatty():
             self.prompt = '(hbnb) '
