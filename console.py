@@ -29,9 +29,9 @@ class HBNBCommand(cmd.Cmd):
     '''Class for a command interpreter for the hbnb app'''
 
     def __init__(self,
-                 completekey,
-                 stdin = None,
-                 stdout = None) -> None:
+                 completekey="tab",
+                 stdin=None,
+                 stdout=None) -> None:
         '''Constructor of the commandline interpreter'''
         super().__init__(completekey, stdin, stdout)
         if sys.stdin.isatty():
