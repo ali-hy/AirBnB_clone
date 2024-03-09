@@ -27,12 +27,13 @@ Classes = {
 
 
 class HBNBCommand(cmd.Cmd):
-    '''Class for a command interpreter for the AirBnB app'''
+    '''Class for a command interpreter for the hbnb app'''
 
     def __init__(self,
                  completekey: str = "tab",
                  stdin: IO[str] | None = None,
                  stdout: IO[str] | None = None) -> None:
+        '''Constructor'''
         super().__init__(completekey, stdin, stdout)
         if sys.stdin.isatty():
             self.prompt = '(hbnb) '
@@ -45,12 +46,14 @@ class HBNBCommand(cmd.Cmd):
         return 1
 
     def help_quit(self):
+        '''help quit'''
         print('Quit command to exit the program\n')
 
     do_EOF = do_quit
     help_EOF = help_quit
 
     def do_create(self, s):
+        '''function to run on 'create' command'''
         args = s.split()
         if args == 0:
             print('** class name missing **')
@@ -64,9 +67,11 @@ class HBNBCommand(cmd.Cmd):
         newobj.save()
 
     def help_create(self):
+        '''help create'''
         print('takes a classname and creates an object of that class')
 
     def do_show(self, s):
+        '''function to run on 'show' command'''
         args = s.split()
         if len(s) == 0:
             print('** class name missing **')
@@ -86,10 +91,12 @@ class HBNBCommand(cmd.Cmd):
             print('** no instance found **')
 
     def help_show(self):
+        '''help show'''
         print('show <classname> <instance_id>: show details of object with ' +
               'specified classname and id')
 
     def do_destroy(self, s):
+        '''function to run on 'destroy' command'''
         args = s.split()
         if len(s) == 0:
             print('** class name missing **')
@@ -109,10 +116,12 @@ class HBNBCommand(cmd.Cmd):
             print('** no instance found **')
 
     def help_destroy(self):
+        '''help destroy'''
         print('destroy <classname> <instance_id>: delete object with ' +
               'specified classname and id')
 
     def do_all(self, s):
+        '''function to call on 'all' command'''
         args = s.split()
         if len(args) == 0:
             classname = None
@@ -132,10 +141,12 @@ class HBNBCommand(cmd.Cmd):
         print(res)
 
     def help_all(self):
+        '''help all'''
         print('show all stored objects. If a classname is specified, only' +
               ' objects with that classname will be displayed')
 
     def do_update(self, s: str):
+        '''function to call on 'update' command'''
         args = shlex.split(s)
         if len(args) == 0:
             print('** class name missing **')
@@ -167,9 +178,11 @@ class HBNBCommand(cmd.Cmd):
         obj.save()
 
     def emptyline(self) -> bool:
+        '''do nothing when an empty line is entered'''
         pass
 
     def precmd(self, line: str) -> str:
+        '''process input before command runs'''
         tmp = line.split('.')
         if len(tmp) < 1 or tmp[0] not in Classes:
             return line
