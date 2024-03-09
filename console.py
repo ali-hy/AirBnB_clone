@@ -30,9 +30,9 @@ class HBNBCommand(cmd.Cmd):
     '''Class for a command interpreter for the hbnb app'''
 
     def __init__(self,
-                 completekey: str = "tab",
-                 stdin: IO[str] | None = None,
-                 stdout: IO[str] | None = None) -> None:
+                 completekey,
+                 stdin,
+                 stdout) -> None:
         '''Constructor of the commandline interpreter'''
         super().__init__(completekey, stdin, stdout)
         if sys.stdin.isatty():
