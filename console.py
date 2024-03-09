@@ -2,7 +2,6 @@
 '''This file starts and manages the console for hbnb
 it's the entrypoint to the application'''
 import cmd
-from typing import IO
 import sys
 import shlex
 from models.amenity import Amenity
@@ -31,8 +30,8 @@ class HBNBCommand(cmd.Cmd):
 
     def __init__(self,
                  completekey,
-                 stdin,
-                 stdout) -> None:
+                 stdin = None,
+                 stdout = None) -> None:
         '''Constructor of the commandline interpreter'''
         super().__init__(completekey, stdin, stdout)
         if sys.stdin.isatty():
