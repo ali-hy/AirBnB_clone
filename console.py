@@ -67,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
         newobj.save()
 
     def help_create(self):
-        '''help create'''
+        '''provide user with details about the create command'''
         print('takes a classname and creates an object of that class')
 
     def do_show(self, s):
@@ -91,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
             print('** no instance found **')
 
     def help_show(self):
-        '''help show'''
+        '''provide user with details about the help command'''
         print('show <classname> <instance_id>: show details of object with ' +
               'specified classname and id')
 
@@ -116,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
             print('** no instance found **')
 
     def help_destroy(self):
-        '''help destroy'''
+        '''provide user with details about the destroy command'''
         print('destroy <classname> <instance_id>: delete object with ' +
               'specified classname and id')
 
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
         print(res)
 
     def help_all(self):
-        '''help all'''
+        '''provide user with details about the all command'''
         print('show all stored objects. If a classname is specified, only' +
               ' objects with that classname will be displayed')
 
