@@ -37,3 +37,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(model_dict["id"], self.model.id)
         self.assertIsInstance(model_dict["created_at"], str)
         self.assertIsInstance(model_dict["updated_at"], str)
+
+    def test_dict_constructor(self):
+        """Test constructor with kwargs of BaseModel class"""
+        model_dict = {
+            'id': 'abc',
+            '__class__':'BaseModel',
+            'created_at': datetime.now().isoformat(),
+            'updated_at': datetime.now().isoformat()
+        }
+
+        model = BaseModel(**model_dict)
+        self.assertDictEqual(model_dict, model.to_dict())
