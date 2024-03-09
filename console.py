@@ -49,8 +49,14 @@ class HBNBCommand(cmd.Cmd):
         '''provide user with details about the quit command'''
         print('Quit command to exit the program\n')
 
-    do_EOF = do_quit
-    help_EOF = help_quit
+    def do_EOF(self, s):
+        '''function to run on `EOF` command
+        exits command interpreter'''
+        return 1
+
+    def help_EOF(self, s):
+        '''provide user with details about the EOF command'''
+        print('Quit command to exit the program\n')
 
     def do_create(self, s):
         '''function to run on 'create' command'''
