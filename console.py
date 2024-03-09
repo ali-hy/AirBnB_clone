@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+'''This file starts and manages the console for hbnb
+it's the entrypoint to the application'''
 import cmd
 from typing import IO
 import sys
