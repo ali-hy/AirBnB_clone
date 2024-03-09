@@ -2,17 +2,18 @@
 '''This file includes tests for the BaseModel class'''
 from datetime import datetime
 import unittest
+
 from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
     '''class to test BaseModel class'''
     def setUp(self):
-        """Setup TestBaseModel instance with BaseModel instance."""
+        """Setup TestBaseModel instance with BaseModel instance"""
         self.model = BaseModel()
 
     def test_id(self):
-        """Test id attribute of BaseModel instance."""
+        """Test id attribute of BaseModel instance"""
         self.assertIsInstance(self.model.id, str)
 
     def test_created_at(self):
@@ -20,7 +21,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(self.model.created_at, datetime)
 
     def test_updated_at(self):
-        """Test updated_at attribute of BaseModel instance."""
+        """Test updated_at attribute of BaseModel instance"""
         self.assertIsInstance(self.model.updated_at, datetime)
 
     def test_save(self):
