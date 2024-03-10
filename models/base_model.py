@@ -24,7 +24,7 @@ class BaseModel:
 
     def save(self):
         '''save model to a file. Not yet implemented'''
-        self.updated_at = datetime.now()
+        # self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
@@ -41,8 +41,8 @@ class BaseModel:
 
     def __repr__(self) -> str:
         return f"BaseModel(id='{self.id}'," + \
-            "created_at={repr(self.created_at)}," + \
-            "updated_at={repr(self.updated_at)})"
+            f"created_at={repr(self.created_at)}," + \
+            f"updated_at={repr(self.updated_at)})"
 
 
 if __name__ == '__main__':
