@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         if stdin is None:
             stdin = sys.stdin
         if stdin.isatty():
-            self.prompt = '(hbnb) '
+            self.prompt = '(hbnb)'
         else:
             self.prompt = ''
 
@@ -62,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, s):
         '''function to run on 'create' command'''
         args = s.split()
-        if args == 0:
+        if len(args) == 0:
             print('** class name missing **')
             return
         classname = args[0]
@@ -112,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
         if classname not in Classes:
             print("** class doesn't exist **")
             return
-        if len(s) == 1:
+        if len(args) == 1:
             print("** instance id missing **")
             return
         instance_id = args[1]
