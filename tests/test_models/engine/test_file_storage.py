@@ -37,3 +37,16 @@ class TestFileStorage(unittest.TestCase):
         key = obj.__class__.__name__ + "." + obj.id
         self.assertIn(key, self.storage.all())
         self.assertDictEqual(obj.to_dict(), self.storage.all()[key].to_dict())
+
+    def test_BaseModel_save(self):
+        """Test save and reload methods of FileStorage instance"""
+        obj = BaseModel(id='fgh',
+                        created_at=datetime.now().isoformat(),
+                        updated_at=datetime.now().isoformat())
+        self.storage.new(obj)
+        obj.save()
+
+        self.storage.reload()
+        key = obj.__class__.__name__ + "." + obj.id
+        self.assertIn(key, self.storage.all())
+        self.assertDictEqual(obj.to_dict(), self.storage.all()[key].to_dict())

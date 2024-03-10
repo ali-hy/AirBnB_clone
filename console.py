@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
         if stdin is None:
             stdin = sys.stdin
         if stdin.isatty():
-            self.prompt = '(hbnb)'
+            self.prompt = '(hbnb) '
         else:
             self.prompt = ''
 
