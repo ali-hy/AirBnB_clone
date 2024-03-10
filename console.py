@@ -4,6 +4,7 @@ it's the entrypoint to the application'''
 import cmd
 import sys
 import shlex
+from datetime import datetime
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
@@ -182,6 +183,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             new_val = curr_type(val)
         setattr(obj, attr, new_val)
+        obj.updated_at = datetime.now()
         obj.save()
 
     def emptyline(self) -> bool:

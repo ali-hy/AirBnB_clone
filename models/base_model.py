@@ -24,7 +24,6 @@ class BaseModel:
 
     def save(self):
         '''save model to a file. Not yet implemented'''
-        # self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
