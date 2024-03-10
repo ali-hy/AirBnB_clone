@@ -47,17 +47,17 @@ class FileStorage:
                 self.all()[key] = FileStorage.__classes[obj['__class__']](
                     **obj)
 
-    def get(self, classname, id):
-        '''get an object using classname and id'''
-        key = f'{classname}.{id}'
-        if key in self.all():
-            return self.all()[key]
-        return None
+    # def get(self, classname, id):
+    #     '''get an object using classname and id'''
+    #     key = f'{classname}.{id}'
+    #     if key in self.all():
+    #         return self.all()[key]
+    #     return None
 
-    def delete(self, classname, id):
-        '''delete an object using classname and id'''
-        key = f'{classname}.{id}'
-        if key in self.all():
-            del FileStorage.__objects[key]
-            return True
-        return False
+    # def delete(self, classname, id):
+    #     '''delete an object using classname and id'''
+    #     key = f'{classname}.{id}'
+    #     if key in self.all():
+    #         del FileStorage.__objects[key]
+    #         return True
+    #     return False
