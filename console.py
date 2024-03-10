@@ -34,7 +34,9 @@ class HBNBCommand(cmd.Cmd):
                  stdout=None) -> None:
         '''Constructor of the commandline interpreter'''
         super().__init__(completekey, stdin, stdout)
-        if sys.stdin.isatty():
+        if stdin is None:
+            stdin = sys.stdin
+        if stdin.isatty():
             self.prompt = '(hbnb) '
         else:
             self.prompt = ''
