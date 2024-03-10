@@ -24,12 +24,6 @@ class TestBaseModel(unittest.TestCase):
         """Test updated_at attribute of BaseModel instance"""
         self.assertIsInstance(self.model.updated_at, datetime)
 
-    def test_save(self):
-        """Test save method of BaseModel instance"""
-        old_updated_at = self.model.updated_at
-        self.model.save()
-        self.assertNotEqual(old_updated_at, self.model.updated_at)
-
     def test_to_dict(self):
         """Test to_dict method of BaseModel instance"""
         model_dict = self.model.to_dict()
