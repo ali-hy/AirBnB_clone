@@ -177,11 +177,15 @@ class HBNBCommand(cmd.Cmd):
             return
         attr = args[2]
         val = args[3]
-        curr_type = type(getattr(obj, attr))
-        if curr_type == list:
-            new_val = eval(val)
+
+        if hasattr(obj, attr):
+            curr_type = type(getattr(obj, attr))
+            if curr_type == list:
+                new_val = eval(val)
+            else:
+                new_val = curr_type(val)
         else:
-            new_val = curr_type(val)
+            new_val = val
         setattr(obj, attr, new_val)
         obj.updated_at = datetime.now()
         obj.save()
