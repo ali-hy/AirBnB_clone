@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_create(self):
         '''provide user with details about the create command'''
-        print('takes a classname and creates an object of that class')
+        print('takes a classname and creates an object of that class\n')
 
     def do_show(self, s):
         '''function to run on 'show' command'''
@@ -98,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
     def help_show(self):
         '''provide user with details about the help command'''
         print('show <classname> <instance_id>: show details of object with ' +
-              'specified classname and id')
+              'specified classname and id\n')
 
     def do_destroy(self, s):
         '''function to run on 'destroy' command'''
@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
     def help_destroy(self):
         '''provide user with details about the destroy command'''
         print('destroy <classname> <instance_id>: delete object with ' +
-              'specified classname and id')
+              'specified classname and id\n')
 
     def do_all(self, s):
         '''function to call on 'all' command'''
@@ -148,7 +148,7 @@ class HBNBCommand(cmd.Cmd):
     def help_all(self):
         '''provide user with details about the all command'''
         print('show all stored objects. If a classname is specified, only' +
-              ' objects with that classname will be displayed')
+              ' objects with that classname will be displayed\n')
 
     def do_update(self, s: str):
         '''function to call on 'update' command'''
