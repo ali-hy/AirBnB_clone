@@ -62,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, s):
         '''function to run on 'create' command'''
-        args = s.split()
+        args = shlex.split(s)
         if len(args) == 0:
             print('** class name missing **')
             return
@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, s):
         '''function to run on 'show' command'''
-        args = s.split()
+        args = shlex.split(s)
         if len(s) == 0:
             print('** class name missing **')
             return
@@ -105,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, s):
         '''function to run on 'destroy' command'''
-        args = s.split()
+        args = shlex.split(s)
         if len(s) == 0:
             print('** class name missing **')
             return
