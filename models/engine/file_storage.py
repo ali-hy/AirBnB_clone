@@ -40,7 +40,7 @@ class FileStorage:
                 'Review': importlib.import_module('models.review').Review
             }
         if not os.path.isfile(FileStorage.__file_path):
-            return {}
+            return
         with open(FileStorage.__file_path, 'r') as f:
             tmp = json.load(f)
             for key, obj in tmp.items():
