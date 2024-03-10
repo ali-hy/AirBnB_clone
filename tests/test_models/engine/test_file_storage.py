@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 from datetime import datetime
+import os
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
@@ -15,7 +16,6 @@ class TestFileStorage(unittest.TestCase):
     def test_all(self):
         """Test all method of FileStorage instance"""
         self.assertIsInstance(self.storage.all(), dict)
-        self.assertDictEqual(self.storage, FileStorage.__objects)
 
     def test_new(self):
         """Test new method of FileStorage instance"""
@@ -32,6 +32,7 @@ class TestFileStorage(unittest.TestCase):
                         updated_at=datetime.now().isoformat())
         self.storage.new(obj)
         self.storage.save()
+
         self.storage.reload()
         key = obj.__class__.__name__ + "." + obj.id
         self.assertIn(key, self.storage.all())
