@@ -15,19 +15,18 @@ from models.state import State
 from models import storage
 
 
-Classes = {
-    'BaseModel': BaseModel,
-    'User': User,
-    'State': State,
-    'City': City,
-    'Amenity': Amenity,
-    'Place': Place,
-    'Reviw': Review
-}
-
-
 class HBNBCommand(cmd.Cmd):
     '''Class for a command interpreter for the hbnb app'''
+
+    __classes = {
+        'BaseModel': BaseModel,
+        'User': User,
+        'State': State,
+        'City': City,
+        'Amenity': Amenity,
+        'Place': Place,
+        'Reviw': Review
+    }
 
     def __init__(self,
                  completekey="tab",
@@ -67,10 +66,10 @@ class HBNBCommand(cmd.Cmd):
             print('** class name missing **')
             return
         classname = args[0]
-        if classname not in Classes:
+        if classname not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
-        newobj = Classes[classname]()
+        newobj = HBNBCommand.__classes[classname]()
         print(newobj.id)
         newobj.save()
 
@@ -85,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
             print('** class name missing **')
             return
         classname = args[0]
-        if classname not in Classes:
+        if classname not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
         if len(args) == 1:
@@ -110,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
             print('** class name missing **')
             return
         classname = args[0]
-        if classname not in Classes:
+        if classname not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
         if len(args) == 1:
@@ -135,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
             classname = None
         else:
             classname = args[0]
-            if classname not in Classes:
+            if classname not in HBNBCommand.__classes:
                 print("** class doesn't exist **")
                 return
         res = []
@@ -159,7 +158,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print('** class name missing **')
             return
-        if args[0] not in Classes:
+        if args[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
         if len(args) == 1:
@@ -197,7 +196,7 @@ class HBNBCommand(cmd.Cmd):
     def precmd(self, line: str) -> str:
         '''process input before command runs'''
         tmp = line.split('.')
-        if len(tmp) < 1 or tmp[0] not in Classes:
+        if len(tmp) < 1 or tmp[0] not in HBNBCommand.__classes:
             return line
 
         # handle: Class.cmd(<arg1>, <arg2>, ..., <argn>)
