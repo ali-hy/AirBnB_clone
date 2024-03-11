@@ -36,7 +36,7 @@ class TestBaseModel(unittest.TestCase):
         """Test constructor with kwargs of BaseModel class"""
         model_dict = {
             'id': 'abc',
-            '__class__':'BaseModel',
+            '__class__': 'BaseModel',
             'created_at': datetime.now().isoformat(),
             'updated_at': datetime.now().isoformat()
         }
