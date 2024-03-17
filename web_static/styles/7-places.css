@@ -1,0 +1,28 @@
+.places {
+    text-align: center;
+}
+
+.places h1 {
+    text-align: left;
+}
+
+.places h1,
+.places h2 {
+    font-size: 30px;
+}
+
+.places article {
+    font-size: 30px;
+    z-index: 1;
+    display: inline-block;
+    text-align: center;
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: solid 1px #FF5A5F;
+    border-radius: 4px;
+}
+
+.places article h2 {
+    margin: 0;
+}

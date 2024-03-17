@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Runs validation command
+./w3c_validator.py *.html *.css
